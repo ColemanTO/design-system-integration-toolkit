@@ -1,3 +1,4 @@
+```MERMAID
 graph LR
     subgraph MD3 ["Material Design 3 Color System"]
         subgraph Primary ["Primary Colors"]
