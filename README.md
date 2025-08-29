@@ -1,4 +1,4 @@
-# design-system-integration-toolkit
+# Design System Integration Toolkit
 
 ## MD3 to AG-Grid Variable Mapping
 
