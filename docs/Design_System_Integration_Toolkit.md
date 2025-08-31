@@ -146,5 +146,5 @@ graph LR
     style MD3 fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
     style AGGrid fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px
 
-    linkStyle default stroke-weight:3px;
+    linkStyle default stroke-weight:4px;
 ```
