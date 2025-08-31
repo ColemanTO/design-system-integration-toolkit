@@ -1,6 +1,6 @@
 ![Token Mapping](https://github.com/ColemanTO/design-system-integration-toolkit/blob/main/MD3-AG_Grid_color_mapping_vertical.svg)
 
-```MERMAID
+```mermaid
 graph LR
     subgraph MD3 ["Material Design 3 Color System"]
         subgraph Primary ["Primary Colors"]
