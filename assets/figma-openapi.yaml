@@ -1,0 +1,132 @@
+openapi: 3.0.0
+info:
+  title: Figma REST API
+  version: 1.0.0
+  description: API for accessing Figma design files, images, comments, and projects.
+servers:
+  - url: https://api.figma.com/v1
+paths:
+  /files/{file_key}:
+    get:
+      summary: Get Figma File
+      description: Returns the document referred to by {file_key}.
+      parameters:
+        - name: file_key
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: depth
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: File data
+          content:
+            application/json:
+              schema:
+                type: object
+  /images/{file_key}:
+    get:
+      summary: Get Figma Images
+      description: Export images from a Figma file.
+      parameters:
+        - name: file_key
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ids
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: format
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [png, jpg, svg]
+      responses:
+        '200':
+          description: Image URLs
+          content:
+            application/json:
+              schema:
+                type: object
+  /files/{file_key}/comments:
+    get:
+      summary: List Comments
+      description: Lists comments on a Figma file.
+      parameters:
+        - name: file_key
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Comments
+          content:
+            application/json:
+              schema:
+                type: object
+    post:
+      summary: Post Comment
+      description: Posts a comment to a Figma file.
+      parameters:
+        - name: file_key
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                client_meta:
+                  type: object
+      responses:
+        '200':
+          description: Comment posted
+          content:
+            application/json:
+              schema:
+                type: object
+  /projects/{project_id}/files:
+    get:
+      summary: List Project Files
+      description: Lists files in a Figma project.
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Project files
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    OAuth2:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - OAuth2: []
