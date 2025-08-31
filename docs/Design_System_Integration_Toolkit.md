@@ -28,3 +28,6 @@ https://github.com/ag-grid/ag-grid.git
 
 [AG Grid Figma] https://www.figma.com/community/file/1360600846643230092
 
+```mermaid
+info
+```
